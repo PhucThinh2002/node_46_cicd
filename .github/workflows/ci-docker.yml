@@ -1,0 +1,23 @@
+name: CI-DOCKER 
+
+
+on: 
+    push:
+        branches: ["main"]
+
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Đăng nhập vào docker hub
+              run: docker login -u thinhdp307 -p ${{secrets.PASS_DOCKER}}
+
+            - name: Build Image mới
+              run: docker build -t thinhdp307/image-be_cyber_media:latest .
+
+            - name: Build Image mới
+              run: docker push thinhdp307/image-be_cyber_media:latest 
