@@ -29,12 +29,12 @@ const httpServer = createServer(app);
 
 initSocket(httpServer);
 
+
+
+
 httpServer.listen(3069, () => {
   console.log(`Server Online At Port 3069`);
 });
-
-
-
 
 
 /**  PRISMA 
